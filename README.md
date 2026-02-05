@@ -6,29 +6,103 @@
 
 ## 📌 Overview
 
-This project implements binary sentiment classification on 50,000 IMDb movie reviews using Natural Language Processing (NLP) and Machine Learning. The system automatically determines whether a movie review expresses positive or negative sentiment. Two notebook versions are provided: a complete version with full exploratory data analysis and visualizations, and a simplified version focusing on the best-performing model. The best model achieves 88.5% accuracy using Logistic Regression with TF-IDF vectorization.
+This project implements **binary sentiment classification** on 50,000 IMDb movie reviews using Natural Language Processing (NLP) and Machine Learning. The system automatically determines whether a movie review expresses positive or negative sentiment.
+
+**Two notebook versions provided:**
+- **Full Version** (`imdb_sentiment_analysis_full.ipynb`) - Complete analysis with EDA, visualizations, and model comparison
+- **Simple Version** (`imdb_sentiment_analysis_simple.ipynb`) - Streamlined implementation with best model only
+
+**Key Achievement**: 88.5% accuracy using Logistic Regression with TF-IDF vectorization
+
+---
 
 ## 🎯 Purpose & Problem Statement
 
 ### The Problem
 
-Movie studios, streaming platforms, and review aggregators receive thousands of user reviews daily. Manually reading and categorizing these reviews as positive or negative is time-consuming and costly, difficult to scale, and prone to human bias and inconsistency.
+Movie studios, streaming platforms, and review aggregators receive thousands of user reviews daily. Manually reading and categorizing these reviews is:
+
+- ⏰ **Time-consuming** and costly
+- 📊 **Difficult to scale**
+- 🔍 **Prone to human bias** and inconsistency
 
 ### The Solution
 
-An automated sentiment classification system that instantly analyzes review sentiment (positive or negative), processes thousands of reviews in minutes, provides confidence scores for each prediction, and enables data-driven decision making.
+An automated sentiment classification system that:
+
+- ✅ Instantly analyzes review sentiment (positive/negative)
+- ✅ Processes thousands of reviews in minutes
+- ✅ Provides confidence scores for each prediction
+- ✅ Enables data-driven decision making
 
 ### Real-World Applications
 
-Content platforms can quickly gauge audience reaction to new releases. Marketing teams can identify trending positive or negative sentiment. Product managers can understand what audiences like or dislike. Review aggregators can automate sentiment tagging.
+- **Content Platforms**: Quickly gauge audience reaction to new releases
+- **Marketing Teams**: Identify trending positive/negative sentiment
+- **Product Managers**: Understand what audiences like or dislike
+- **Review Aggregators**: Automate sentiment tagging
+
+---
 
 ## 📊 Dataset Details
 
-The dataset used is the Stanford Large Movie Review Dataset available at https://ai.stanford.edu/~amaas/data/sentiment/. It contains 50,000 labeled movie reviews from IMDb with 25,000 training reviews (12,500 positive and 12,500 negative) and 25,000 test reviews (12,500 positive and 12,500 negative). The dataset is perfectly balanced with a 50-50 split between classes. Reviews are stored as raw text files with HTML tags, punctuation, and mixed case, with an average review length of approximately 230 words. The dataset is in English and the compressed download size is about 80 MB. Key challenges include HTML tags like `<br />` and `<p>` that need cleaning, mixed case text requiring normalization, numbers and special characters adding noise, stopwords like "the", "is", and "a" that don't carry sentiment, and sarcasm or nuanced language patterns.
+**Source**: [Stanford Large Movie Review Dataset (aclImdb)](https://ai.stanford.edu/~amaas/data/sentiment/)
+
+### Dataset Characteristics
+
+| Attribute | Details |
+|-----------|---------|
+| **Total Reviews** | 50,000 labeled movie reviews from IMDb |
+| **Training Set** | 25,000 reviews (12,500 positive + 12,500 negative) |
+| **Test Set** | 25,000 reviews (12,500 positive + 12,500 negative) |
+| **Balance** | Perfectly balanced (50-50 split) |
+| **Format** | Raw text files with HTML tags, punctuation, mixed case |
+| **Avg Review Length** | ~230 words |
+| **Language** | English |
+| **Download Size** | ~80 MB (compressed) |
+
+### Data Challenges
+
+- 🏷️ **HTML tags** (`<br />`, `<p>`, etc.) need cleaning
+- 🔤 **Mixed case** text requires normalization
+- 🔢 **Numbers and special characters** add noise
+- 📝 **Stopwords** ("the", "is", "a") don't carry sentiment
+- 🎭 **Sarcasm** and nuanced language patterns
+
+---
 
 ## 🛠️ Tech Stack
 
-The project uses Python 3.8 or higher as the programming language. For data processing, Pandas 2.0+ and NumPy 1.24+ are used. NLP libraries include NLTK 3.8+ for stopwords and lemmatization, BeautifulSoup4 4.12+ for HTML parsing, and Python's built-in Regex module. Machine Learning is handled by Scikit-learn 1.3+, which provides CountVectorizer for Bag-of-Words representation and TfidfVectorizer for TF-IDF representation. The machine learning models implemented are Multinomial Naive Bayes and Logistic Regression. For visualization, Matplotlib 3.7+, Seaborn 0.12+, and WordCloud 1.9+ are used. Model serialization is done with Joblib 1.3+. The development environment is Jupyter Notebook, and version control is managed through Git and GitHub.
+| Category | Technologies |
+|----------|-------------|
+| **Programming Language** | Python 3.8+ |
+| **Data Processing** | Pandas 2.0+, NumPy 1.24+ |
+| **NLP Libraries** | NLTK 3.8+ (stopwords, lemmatization), BeautifulSoup4 4.12+, Regex |
+| **Machine Learning** | Scikit-learn 1.3+ |
+| **Text Vectorization** | CountVectorizer (Bag-of-Words), TfidfVectorizer (TF-IDF) |
+| **ML Models** | Multinomial Naive Bayes, Logistic Regression |
+| **Visualization** | Matplotlib 3.7+, Seaborn 0.12+, WordCloud 1.9+ |
+| **Model Serialization** | Joblib 1.3+ |
+| **Development Environment** | Jupyter Notebook |
+| **Version Control** | Git, GitHub |
+
+---
+
+## 🔄 Complete Project Pipeline
+
+### Phase 1: Data Acquisition
+
+1. Download `aclImdb_v1.tar.gz` from Stanford (~80MB)
+2. Extract tar.gz archive to local directory
+3. Parse 50,000 text files from `pos/` and `neg/` folders
+4. Convert to structured Pandas DataFrames
+5. Save as `train.csv` and `test.csv` for faster future loading
+
+### Phase 2: Text Preprocessing
+
+**Example Transformation:**
+
+
 
 ## 🔄 Complete Project Pipeline
 
