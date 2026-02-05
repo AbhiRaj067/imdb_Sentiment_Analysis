@@ -88,21 +88,6 @@ An automated sentiment classification system that:
 
 ---
 
-## 🔄 Complete Project Pipeline
-
-### Phase 1: Data Acquisition
-
-1. Download `aclImdb_v1.tar.gz` from Stanford (~80MB)
-2. Extract tar.gz archive to local directory
-3. Parse 50,000 text files from `pos/` and `neg/` folders
-4. Convert to structured Pandas DataFrames
-5. Save as `train.csv` and `test.csv` for faster future loading
-
-### Phase 2: Text Preprocessing
-
-**Example Transformation:**
-
-
 
 ## 🔄 Complete Project Pipeline
 
